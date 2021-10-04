@@ -20,6 +20,9 @@ class FirstVC: UIViewController, UITextFieldDelegate {
        
     }
 
+    
+    // This is function is used to push to 2nd view controller
+    
     @IBAction func Push2ndVCAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         

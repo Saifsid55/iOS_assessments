@@ -15,13 +15,14 @@ class SecondVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+  // This function is used to pop view controller
     @IBAction func Popbtn(_ sender: UIButton) {
         
         self.navigationController?.popViewController(animated: true)
     }
     
     
+ // 
     @IBAction func presentBtn(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -30,6 +31,8 @@ class SecondVC: UIViewController {
         self.navigationController?.present(vc!, animated: true, completion: nil)
     }
     
+    
+    // This is function is used to push to 4th view controller
     
     @IBAction func push4thVCBtn(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
