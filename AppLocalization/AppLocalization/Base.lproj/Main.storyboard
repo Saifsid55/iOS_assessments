@@ -150,9 +150,11 @@
                                     <constraint firstAttribute="width" constant="350" id="kJF-QX-wVe"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Localization" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG8-QB-ilM">
-                                <rect key="frame" x="32" y="125" width="350" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Localization" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG8-QB-ilM">
+                                <rect key="frame" x="32" y="125" width="350" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="8Wr-Vh-H57"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -162,9 +164,12 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L2A-Hz-hNN" secondAttribute="bottom" constant="5" id="Bwc-HR-SqJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L2A-Hz-hNN" secondAttribute="trailing" constant="5" id="OQW-pc-SET"/>
+                            <constraint firstItem="fG8-QB-ilM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="PtF-tp-Mao"/>
                             <constraint firstItem="cU0-WY-GCu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="f7A-x4-JFc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fG8-QB-ilM" secondAttribute="trailing" constant="32" id="oft-qO-eJc"/>
                             <constraint firstItem="L2A-Hz-hNN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="uTh-Rt-dkb"/>
                             <constraint firstItem="cU0-WY-GCu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w1h-QN-mso"/>
+                            <constraint firstItem="fG8-QB-ilM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="81" id="xXK-mP-yQQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -179,6 +184,7 @@
                         <outlet property="mystateLbl" destination="AV3-nq-VMG" id="KUe-b7-BhQ"/>
                         <outlet property="nameLbl" destination="6RW-Ue-CNl" id="Gsw-iQ-19N"/>
                         <outlet property="stateLbl" destination="Ql9-9F-DuG" id="LOQ-VO-oJW"/>
+                        <outlet property="titleLbl" destination="fG8-QB-ilM" id="nlV-b1-23k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var mynameLbl: UILabel!
     @IBOutlet weak var stateLbl: UILabel!
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
     
     func changingLanguage(lan : String)
     {
+        titleLbl.text = "title".stringLoc(loc: lan)
         nameLbl.text = "namekey".stringLoc(loc: lan)
         mynameLbl.text = "mynamekey".stringLoc(loc: lan)
         stateLbl.text = "statekey".stringLoc(loc: lan)
