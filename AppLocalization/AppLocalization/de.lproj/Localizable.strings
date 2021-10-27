@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  AppLocalization
+
+  Created by Mohd Saif on 28/10/21.
+  
+*/
+
+"namekey" = "Name :";
+"mynamekey" = "Mohd Saif";
+"statekey" = "Zustand :";
+"mystatekey" = "UttarPradesh";
+"countrykey" = "Land :";
+"mycountrykey" = "India";
+"dobkey" = "Geburtsdatum :";
+"mydobkey" = "12/05/1999";
+"lotterykey" = "Lotterie gewonnen :";
+"amountkey" = "114.82 Euro";
