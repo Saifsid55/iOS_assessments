@@ -34,7 +34,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SDlocation()
+//        SDlocation()
         checkLocationServices()
     }
     
@@ -60,11 +60,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
             setLocationManager()
             checkLocationAuthorization()
             CreateAnnotations(locations: annotations)
+            drawLineBetweenTwoAnnotations()
         }
-        else
-        {
-            
-        }
+//        else
+//        {
+//
+//        }
     }
     
     
@@ -114,46 +115,32 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
         
     }
-    
-    func SDlocation(){
-        
-        
-        let sourceLocation = CLLocationCoordinate2D(latitude:26.838025 , longitude: 80.925857)
-        let destinationLocation = CLLocationCoordinate2D(latitude:26.842323 , longitude: 80.933856)
-        
-        let sourcePin = customPin(pinTitle: "One", pinSubTitle: "", location: sourceLocation)
-        let destinationPin = customPin(pinTitle: "Five", pinSubTitle: "", location: destinationLocation)
-        self.mapView.addAnnotation(sourcePin)
-        self.mapView.addAnnotation(destinationPin)
-        
-        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
-        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
-        
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
-        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
-        directionRequest.transportType = .automobile
-        
-        let directions = MKDirections(request: directionRequest)
-        directions.calculate { (response, error) in
-            guard let directionResonse = response else {
-                if let error = error {
-                    print("we have error getting directions==\(error.localizedDescription)")
-                }
-                return
-            }
-            
-            let route = directionResonse.routes[0]
-            self.mapView.addOverlay(route.polyline, level: .aboveRoads)
-            
-            let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
-        }
-        
-        self.mapView.delegate = self
+    func drawLineBetweenTwoAnnotations() {
+        let sourceC = CLLocationCoordinate2D(latitude: 26.838025, longitude: 80.925857)
+        let destC = CLLocationCoordinate2D(latitude: 26.842323, longitude: 80.933856)
 
+        let sourcePlacemark = MKPlacemark(coordinate: sourceC)
+        let destPlacemark = MKPlacemark(coordinate: destC)
+
+        let requestForDirection = MKDirections.Request()
+        requestForDirection.source =  MKMapItem(placemark: sourcePlacemark)
+        requestForDirection.destination = MKMapItem(placemark: destPlacemark)
+        requestForDirection.transportType = .automobile
+
+        let directions = MKDirections(request: requestForDirection)
+        directions.calculate { ( response, error) in
+            guard let directionResponse = response else {
+                if let error = error {
+                    print("We have an issue in response. (\(error.localizedDescription))")
+                }
+                 return
+            }
+//            print(directionResponse.routes)
+            let route = directionResponse.routes[0]
+            self.mapView.addOverlay(route.polyline, level: .aboveRoads)
+        }
     }
-    
+
     
 }
 
