@@ -34,8 +34,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        SDlocation()
+
         checkLocationServices()
+        drawLineBetweenTwoAnnotations()
+        createOverlays()
     }
     
     func setLocationManager()
@@ -60,7 +62,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             setLocationManager()
             checkLocationAuthorization()
             CreateAnnotations(locations: annotations)
-            drawLineBetweenTwoAnnotations()
+            
         }
 //        else
 //        {
@@ -141,6 +143,29 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
     }
 
+    func createOverlays() {
+        let sourceC = CLLocationCoordinate2D(latitude: 26.838025, longitude: 80.925857)
+        let destC = CLLocationCoordinate2D(latitude: 26.842323, longitude: 80.933856)
+        let overlay1 = MKCircle(center: sourceC, radius: 10)
+        let overlay2 = MKCircle(center: destC, radius: 10)
+        mapView.addOverlay(overlay1)
+        mapView.addOverlay(overlay2)
+    }
+    func map(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay.isKind(of: MKCircle.self) {
+            let circleRenderer = MKCircleRenderer(overlay: overlay)
+            circleRenderer.fillColor = .systemTeal
+            circleRenderer.strokeColor = .systemTeal
+            circleRenderer.lineWidth = 7
+            return circleRenderer
+        }
+//        return MKCircleRenderer(overlay: overlay)
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 4.0
+
+        return renderer
+    }
     
 }
 
